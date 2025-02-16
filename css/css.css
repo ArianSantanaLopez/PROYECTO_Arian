@@ -9,25 +9,27 @@ body {
     line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
-    background-color: #004466; 
+    background-color: #004466;
     color: white;
     padding: 20px 0;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
+    padding: 15px;
     margin: 0;
     display: flex;
     justify-content: center;
     gap: 20px;
-    background: #003355; 
-    padding: 15px;
+    background: #003355;
     border-radius: 5px;
 }
 
@@ -41,7 +43,7 @@ nav ul li a {
     font-size: 18px;
     font-weight: bold;
     padding: 10px 15px;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
     position: relative;
 }
 
@@ -58,6 +60,7 @@ nav ul li a::after {
 
 nav ul li a:hover {
     color: gold;
+    transform: scale(1.1);
 }
 
 nav ul li a:hover::after {
@@ -67,15 +70,16 @@ nav ul li a:hover::after {
 
 section {
     padding: 60px 20px;
-    margin-top: 60px;
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #Noticias {
-    background-color: #660000;
+    background-color: firebrick;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 50px 20px;
@@ -83,6 +87,7 @@ section {
     background-size: cover;
     background-position: center;
     position: relative;
+    animation: fadeIn 1s ease-out;
 }
 
 #Noticias h2 {
@@ -97,10 +102,19 @@ section {
     margin-bottom: 20px;
 }
 
-#video-section iframe {
-    border-radius: 10px;
+#video-section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 20px;
-    max-width: 100%;
+}
+
+#video-section iframe {
+    width: 80%;
+    height: 80vh;
+    border-radius: 10px;
 }
 
 #sobre p, #cronologia ul, #gira ul {
@@ -132,7 +146,6 @@ section {
 }
 
 #gira li {
-    margin: 0;
     font-size: 1.2rem;
     border: 2px solid #003366;
     border-radius: 5px;
@@ -154,9 +167,8 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
-    position: fixed;
+    position: relative;
     width: 100%;
-    bottom: 0;
     font-size: 1rem;
 }
 
@@ -217,7 +229,45 @@ footer {
     }
 }
 
-/* ESTILOS NUEVOS PARA CONTACTO */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    nav ul li a {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+
+    .galeria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #Noticias h2 {
+        font-size: 1.6rem;
+    }
+
+    #sobre, #cronologia, #gira {
+        padding: 10px;
+    }
+
+    #video-section iframe {
+        width: 90%;
+        height: 200px;
+    }
+
+    form {
+        width: 90%;
+    }
+
+    footer {
+        font-size: 0.8rem;
+    }
+
+    .redes a {
+        font-size: 1.8rem;
+    }
+}
 
 #contacto {
     background: white;
@@ -251,7 +301,7 @@ form label {
 form input, form textarea {
     width: 100%;
     padding: 10px;
-    margin-top: 5px;
+    margin-top: 10px;
     border: 2px solid #003366;
     border-radius: 5px;
     font-size: 1rem;
@@ -287,4 +337,95 @@ form button:hover {
 
 .redes a:hover {
     color: gold;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes hoverEffect {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+#biografia {
+    background-color: #ffffff;
+    color: #333;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.8;
+}
+
+#biografia h2 {
+    font-size: 2.2rem;
+    color: #003366;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+#biografia p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+#biografia .highlight {
+    background-color: #fffae6;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#biografia .quote {
+    font-style: italic;
+    color: #777;
+    margin: 20px 0;
+}
+
+#biografia img {
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.discos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.disco {
+    width: 30%;
+    margin: 10px;
+    text-align: center;
+}
+
+.disco img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.disco h3 {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: #003366;
 }
