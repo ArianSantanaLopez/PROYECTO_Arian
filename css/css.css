@@ -68,6 +68,17 @@ nav ul li a:hover::after {
     left: 0;
 }
 
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: -1; 
+}
+
+
 section {
     padding: 60px 20px;
     max-width: 1200px;
@@ -272,6 +283,65 @@ footer {
     margin: 20px auto;
 }
 
+#contacto label {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #003366;
+    margin: 15px 0 5px;
+    text-align: left;
+}
+
+#contacto input,
+#contacto textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #003366;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contacto input:focus,
+#contacto textarea:focus {
+    border-color: gold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+#contacto button {
+    background-color: #003366;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#contacto button:hover {
+    background-color: gold;
+    color: black;
+    transform: scale(1.05);
+}
+
+#contacto .redes a {
+    font-size: 2rem;
+    margin: 0 10px;
+    color: #003366;
+    transition: color 0.3s ease;
+}
+
+#contacto .redes a:hover {
+    color: gold;
+}
+
+
 .imagen-quevedo {
     width: 250px;
     border-radius: 10px;
@@ -408,51 +478,88 @@ form button:hover {
     object-fit: cover;
 }
 
-#discografia {
+/* Contenedor de la sección */
+.discos { 
     background-color: #ffffff;
-    color: #333;
-    padding: 30px;
+    color: #222;
+    padding: 40px;
     margin: 20px auto;
-    max-width: 800px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
+    max-width: 1000px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
     font-family: 'Poppins', sans-serif;
     line-height: 1.8;
 }
 
-#discografia h2 {
-    font-size: 2.2rem;
-    color: #003366;
-    margin-bottom: 15px;
+.discos h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.5rem;
+    color: #ff416c;
     font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
 }
 
-#discografia .album-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
+.discos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
 }
 
-#discografia .album {
-    background-color: #f9f9f9;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.disco {
+    background-color: #fafafa;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     text-align: center;
+    width: 320px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#discografia .album img {
+.disco:hover {
+    transform: scale(1.07);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.disco img {
     width: 100%;
-    border-radius: 5px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
 }
 
-#discografia .album h3 {
-    margin-top: 10px;
-    font-size: 1.2rem;
-    color: #003366;
+.disco img:hover {
+    transform: scale(1.05);
 }
+
+.disco h3 {
+    font-size: 1.5rem;
+    color: #003366;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.disco p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 12px;
+}
+
+@media (max-width: 768px) {
+    .discos {
+        flex-direction: column;
+        align-items: center;
+    }
+    .disco {
+        width: 90%;
+    }
+}
+
 
 @media (max-width: 480px) {
     #biografia, #discografia {
